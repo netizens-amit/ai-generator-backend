@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Minitech - Innovation at Your Fingertips</title>
+    <meta
+      name="description"
+      content="Minitech: Transforming businesses with AI-powered solutions and cloud-native infrastructure."
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <div class="logo">Minitech</div>
+        <button class="hamburger" id="hamburger"></button>
+        <ul class="nav-links" id="nav-links">
+          <li><a href="#home" onclick="smoothScroll('#home')">Home</a></li>
+          <li><a href="#features" onclick="smoothScroll('#features')">Features</a></li>
+          <li><a href="#about" onclick="smoothScroll('#about')">About</a></li>
+          <li><a href="#contact" onclick="smoothScroll('#contact')">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <section class="hero" id="home">
+      <div class="hero-content">
+        <h1>Transform Your Business with AI-Powered Solutions</h1>
+        <p>
+          Unlock unprecedented efficiency and scalability with our cutting-edge AI platform. Built
+          for the cloud, optimized for your success.
+        </p>
+        <div class="hero-cta">
+          <button class="btn btn-primary" onclick="smoothScroll('#contact')">
+            Start Free Trial
+          </button>
+          <button class="btn btn-secondary" onclick="smoothScroll('#features')">
+            Request Demo
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section class="features" id="features">
+      <h2>Key Features</h2>
+      <div class="features-grid">
+        <div class="feature-card">
+          <span class="icon"></span>
+          <h3>Scalable Infrastructure</h3>
+          <p>
+            Our cloud-native infrastructure automatically scales to meet your demands, ensuring
+            optimal performance even during peak loads. Experience unparalleled reliability and
+            efficiency.
+          </p>
+        </div>
+        <div class="feature-card">
+          <span class="icon"></span>
+          <h3>API Integrations</h3>
+          <p>
+            Seamlessly integrate Minitech's powerful APIs into your existing workflows and
+            applications. Automate tasks, share data, and unlock new possibilities for innovation.
+          </p>
+          '
+        </div>
+        <div class="feature-card">
+          <span class="icon"></span>
+          <h3>Enterprise-Grade Security</h3>
+          <p>
+            Protect your data with our robust security measures, including encryption, access
+            controls, and regular security audits. Trust Minitech to keep your business safe and
+            compliant.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="about" id="about">
+      <h2>About Minitech</h2>
+      <p>
+        Minitech is dedicated to providing businesses with innovative technology solutions that
+        drive growth and efficiency. Our mission is to empower organizations to harness the power of
+        AI and cloud computing to achieve their strategic goals.
+      </p>
+      <p>
+        What sets us apart is our commitment to delivering cutting-edge technology with a human
+        touch. We understand that technology is only as good as the people who use it, which is why
+        we prioritize user experience and provide comprehensive support to our clients.
+      </p>
+      <p>
+        By partnering with Minitech, businesses gain access to a powerful suite of tools and
+        expertise that enable them to streamline operations, reduce costs, and unlock new
+        opportunities for growth. We are committed to helping our customers succeed in today's
+        rapidly evolving digital landscape.
+      </p>
+      '
+    </section>
+
+    <section class="contact" id="contact">
+      <h2>Contact Us</h2>
+      <form id="contact-form">
+        <div class="form-group">
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name" required minlength="2" />
+          <span class="error-message" id="name-error"></span>
+        </div>
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required />
+          <span class="error-message" id="email-error"></span>
+        </div>
+        <div class="form-group">
+          <label for="message">Message:</label>
+          <textarea id="message" name="message" required minlength="10"></textarea>
+          <span class="error-message" id="message-error"></span>
+        </div>
+        <button type="submit">Submit</button>
+        <p id="success-message" class="success-message"></p>
+      </form>
+    </section>
+
+    <footer>
+      <p>2025 Minitech</p>
+      <div class="social-links">
+        <a href="#"></a>
+        <a href="#"></a>
+        <a href="#"></a>
+      </div>
+      <div class="quick-links">
+        <a href="#home">Home</a>
+        <a href="#features">Features</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="contact-info">
+        <p>info@minitech.com</p>
+        <p>123-456-7890</p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Spintech - Your gateway to financial services, investments, and security."
+    />
+    <title>Spintech - Financial Services</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&family=Montserrat:wght@400;500&family=Lato:wght@400;500&family=Open+Sans:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <img src="logo.png" alt="Spintech Logo" />
+        <ul>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#solutions">Solutions</a></li>
+          <li><a href="#resources">Resources</a></li>
+          <li><a href="#login">Login</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <section class="hero">
+        <h1>Your Financial Services Partner</h1>
+        <p>Trust us with your financial journey.</p>
+        <a href="#open-account" class="cta">Open Account</a>
+      </section>
+      <section id="services">
+        <h2>Our Services</h2>
+        <div class="service">
+          <img src="banking-icon.png" alt="Banking" />
+          <h3>Banking</h3>
+          <p>Safe and secure banking solutions.</p>
+        </div>
+        <div class="service">
+          <img src="investments-icon.png" alt="Investments" />
+          <h3>Investments</h3>
+          <p>Grow your wealth with expert advice.</p>
+        </div>
+        <div class="service">
+          <img src="loans-icon.png" alt="Loans" />
+          <h3>Loans</h3>
+          <p>Flexible loan options to fit your needs.</p>
+        </div>
+        <div class="service">
+          <img src="insurance-icon.png" alt="Insurance" />
+          <h3>Insurance</h3>
+          <p>Protect what matters most.</p>
+        </div>
+      </section>
+      <section id="security">
+        <h2>Security & Compliance</h2>
+        <div>
+          <img src="lock-icon.png" alt="Lock" />
+          <p>Bank-Level Encryption</p>
+        </div>
+        <div>
+          <img src="fdic-icon.png" alt="FDIC" />
+          <p>FDIC Insured</p>
+        </div>
+        <div>
+          <img src="sec-icon.png" alt="SEC" />
+          <p>SEC Registered</p>
+        </div>
+        <div>
+          <img src="bbb-icon.png" alt="BBB" />
+          <p>BBB A+ Rating</p>
+        </div>
+      </section>
+      <section id="product-comparison">
+        <h2>Product Comparison</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Features</th>
+              <th>Basic</th>
+              <th>Premium</th>
+              <th>Ultimate</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Interest Rates</td>
+              <td>2.5% APY</td>
+              <td>3.5% APY</td>
+              <td>4.5% APY</td>
+            </tr>
+            <tr>
+              <td>Deposit Insurance</td>
+              <td>$250,000</td>
+              <td>$250,000</td>
+              <td>$250,000</td>
+            </tr>
+            <tr>
+              <td>Investment Tools</td>
+              <td>Limited</td>
+              <td>Full</td>
+              <td>Advanced</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+      <section id="testimonials">
+        <h2>Client Testimonials</h2>
+        <div>
+          <p>Spintech has helped me grow my savings significantly. Highly recommend!</p>
+          <p>- Jane Doe, Investment Client</p>
+          <p>Great service and easy to use. Very secure.</p>
+          <p>- John Smith, Banking Client</p>
+        </div>
+      </section>
+      <section id="calculators">
+        <h2>Financial Calculators</h2>
+        <div>
+          <h3>Loan Calculator</h3>
+          <input
+            type="range"
+            min="1000"
+            max="100000"
+            step="1000"
+            value="50000"
+            id="loan-amount"
+          /><label for="loan-amount">Loan Amount: $<span id="loan-value">50000</span></label
+          ><input type="range" min="1" max="30" step="1" value="15" id="loan-years" /><label
+            for="loan-years"
+            >Years: <span id="loan-years-value">15</span></label
+          >
+          <p>Monthly Payment: $<span id="loan-payment">366.66</span></p>
+        </div>
+        <div>
+          <h3>Investment Return Calculator</h3>
+          <input
+            type="range"
+            min="1000"
+            max="100000"
+            step="1000"
+            value="50000"
+            id="investment-amount"
+          /><label for="investment-amount"
+            >Investment Amount: $<span id="investment-value">50000</span></label
+          ><input type="range" min="1" max="30" step="1" value="15" id="investment-years" /><label
+            for="investment-years"
+            >Years: <span id="investment-years-value">15</span></label
+          >
+          <p>Future Value: $<span id="investment-future-value">90250.09</span></p>
+        </div>
+        <div>
+          <h3>Retirement Calculator</h3>
+          <input
+            type="range"
+            min="1000"
+            max="100000"
+            step="1000"
+            value="50000"
+            id="retirement-amount"
+          /><label for="retirement-amount"
+            >Monthly Savings: $<span id="retirement-value">50000</span></label
+          ><input type="range" min="20" max="80" step="1" value="65" id="retirement-age" /><label
+            for="retirement-age"
+            >Retirement Age: <span id="retirement-age-value">65</span></label
+          >
+          <p>Estimated Savings: $<span id="retirement-savings">1299337.65</span></p>
+        </div>
+      </section>
+      <section id="resources">
+        <h2>Resources & Education Center</h2>
+        <article>
+          <h3>Understanding Investments</h3>
+          <p>Learn about different types of investments...</p>
+        </article>
+        <article>
+          <h3>Financial Planning Tips</h3>
+          <p>Get expert advice on financial planning...</p>
+        </article>
+      </section>
+      <section id="contact">
+        <h2>Contact & Consultation</h2>
+        <form>
+          <div><label for="name">Name:</label><input type="text" id="name" required /></div>
+          <div><label for="email">Email:</label><input type="email" id="email" required /></div>
+          <div>
+            <label for="message">Message:</label><textarea id="message" required></textarea>
+          </div>
+          <button type="submit">Schedule Consultation</button>
+        </form>
+      </section>
+    </main>
+    <footer>
+      <p>&copy; 2023 Spintech. All rights reserved.</p>
+      <p>SEC Registered | BBB A+ Rating</p>
+      <p>Your deposits are insured up to $250,000.</p>
+      <p>No hidden fees. Clear terms.</p>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>

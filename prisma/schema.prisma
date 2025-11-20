@@ -1,0 +1,115 @@
+// prisma/schema.prisma
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String    @id @default(uuid())
+  email     String    @unique
+  password  String
+  name      String?
+  projects  Project[]
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+
+  @@map("users")
+}
+
+model Project {
+  id            String        @id @default(uuid())
+  userId        String
+  companyName   String
+  industry      String
+  websiteType   String
+  designStyle   String
+  colorScheme   Json
+  codeType      CodeType      @default(REACT)
+  aiModel       AIModel       @default(GEMINI)
+  status        ProjectStatus @default(PENDING)
+  progress      Int           @default(0)
+  currentStep   String?
+  errorMessage  String?
+  completedAt   DateTime?
+  generationLog Json?         // Store generation steps
+  createdAt     DateTime      @default(now())
+  updatedAt     DateTime      @updatedAt
+  
+  user          User          @relation(fields: [userId], references: [id])
+  files         File[]
+  iterations    Iteration[]   // Track regeneration attempts
+  
+  @@index([userId])
+  @@index([status])
+  @@map("projects")
+}
+
+model File {
+  id          String   @id @default(uuid())
+  projectId   String
+  project     Project  @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  
+  fileName    String   // e.g., "App.tsx", "components/Header.tsx"
+  filePath    String   // Full filesystem path
+  fileType    FileType
+  fileSize    Int
+  content     String   @db.Text // Store actual content for quick access
+  version     Int      @default(1)
+  
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@unique([projectId, fileName])
+  @@index([projectId])
+  @@map("files")
+}
+
+model Iteration {
+  id          String   @id @default(uuid())
+  projectId   String
+  project     Project  @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  
+  version     Int
+  status      String   // 'success' | 'failed'
+  prompt      String   @db.Text
+  aiModel     AIModel
+  duration    Int?     // milliseconds
+  errorLog    String?  @db.Text
+  
+  createdAt   DateTime @default(now())
+
+  @@index([projectId])
+  @@map("iterations")
+}
+
+enum CodeType {
+  HTML
+  REACT
+}
+
+enum AIModel {
+  GEMINI
+  QWEN
+}
+
+enum ProjectStatus {
+  PENDING
+  PROCESSING
+  VALIDATING
+  COMPLETED
+  FAILED
+}
+
+enum FileType {
+  HTML
+  CSS
+  JAVASCRIPT
+  TYPESCRIPT
+  JSON
+  MARKDOWN
+}

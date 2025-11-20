@@ -1,0 +1,128 @@
+/* Global styles with CSS variables */
+:root {
+  --primary: #64748b;
+  --secondary: #94a3b8;
+  --accent: #cbd5e1;
+}
+
+body {
+  margin: 0;
+  font-family: 'Lato', sans-serif;
+  color: #333;
+  background-color: #f9fafb;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+header,
+footer {
+  background-color: var(--primary);
+  color: white;
+  padding: 1rem;
+  text-align: center;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-menu {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-menu li {
+  display: inline;
+}
+
+.nav-menu a {
+  color: white;
+  text-decoration: none;
+}
+
+.hero {
+  background: linear-gradient(135deg, var(--accent), var(--primary));
+  color: white;
+  padding: 5rem 2rem;
+  text-align: center;
+}
+
+.hero h1 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.cta-button {
+  background-color: white;
+  color: var(--primary);
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 24px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+  background-color: var(--secondary);
+}
+
+.services {
+  padding: 3rem 2rem;
+  text-align: center;
+}
+
+.services h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+.services-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+}
+
+.service-card {
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 24px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  text-align: center;
+  width: 200px;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+.service-card h3 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.service-card p {
+  font-size: 1rem;
+}

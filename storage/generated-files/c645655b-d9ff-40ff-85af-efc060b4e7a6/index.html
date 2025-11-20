@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Professional Education & E-Learning services" />
+    <title>Stembotix - Education & E-Learning</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&family=Quicksand:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --primary: #f97316;
+        --secondary: #fb923c;
+        --accent: #fbbf24;
+      }
+      body {
+        font-family: 'Nunito', sans-serif;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        color: #333;
+      }
+      header {
+        background-color: var(--primary);
+        padding: 1rem;
+        position: fixed;
+        width: 100%;
+        z-index: 1000;
+      }
+      header .logo {
+        display: flex;
+        align-items: center;
+      }
+      header .logo img {
+        height: 3rem;
+        margin-right: 1rem;
+      }
+      header nav ul {
+        list-style: none;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 0;
+        padding: 0;
+      }
+      header nav ul li a {
+        color: white;
+        text-decoration: none;
+        padding: 1rem;
+        transition: background-color 0.3s ease;
+      }
+      header nav ul li a:hover {
+        background-color: var(--secondary);
+      }
+      header nav .toggle-btn {
+        display: none;
+        cursor: pointer;
+      }
+      main {
+        margin-top: 6rem;
+      }
+      section {
+        padding: 4rem;
+      }
+      h1,
+      h2,
+      h3 {
+        font-family: 'Quicksand', sans-serif;
+      }
+      section.hero {
+        background-color: var(--accent);
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        text-align: center;
+        padding: 8rem 4rem;
+      }
+      section.hero h1 {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+      }
+      section.hero p {
+        font-size: 1.5rem;
+        margin-bottom: 2rem;
+      }
+      section.hero .cta {
+        background-color: var(--primary);
+        color: white;
+        padding: 1rem 2rem;
+        border: none;
+        border-radius: 20px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+      section.hero .cta:hover {
+        background-color: var(--secondary);
+      }
+      section.courses {
+        background-color: #f4f4f4;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1rem;
+      }
+      section.courses article {
+        background-color: white;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+      }
+      section.courses article:hover {
+        transform: translateY(-10px);
+      }
+      section.courses article img {
+        width: 100%;
+        height: 150px;
+        object-fit: cover;
+      }
+      section.courses article .content {
+        padding: 1rem;
+      }
+      section.courses article .content h2 {
+        font-size: 1.5rem;
+        margin-bottom: 0.5rem;
+      }
+      section.courses article .content p {
+        margin-bottom: 1rem;
+      }
+      section.courses article .content .info {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      section.courses article .content .info .rating {
+        display: flex;
+        align-items: center;
+      }
+      section.courses article .content .info .rating img {
+        height: 1rem;
+        margin-right: 0.2rem;
+      }
+      section.courses article .content .info .enrolled {
+        font-size: 0.9rem;
+      }
+      section.categories {
+        background-color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 2rem;
+      }
+      section.categories div {
+        background-color: var(--primary);
+        color: white;
+        padding: 1rem 2rem;
+        border-radius: 20px;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        transition: background-color 0.3s ease;
+      }
+      section.categories div:hover {
+        background-color: var(--secondary);
+      }
+      section.categories div img {
+        height: 2rem;
+      }
+      section.instructors {
+        background-color: #f4f4f4;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 2rem;
+      }
+      section.instructors article {
+        background-color: white;
+        border-radius: 20px;
+        padding: 1rem;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+      }
+      section.instructors article:hover {
+        transform: translateY(-10px);
+      }
+      section.instructors article img {
+        width: 5rem;
+        height: 5rem;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-right: 1rem;
+      }
+      section.instructors article .content h2 {
+        font-size: 1.2rem;
+        margin-bottom: 0.5rem;
+      }
+      section.instructors article .content p {
+        font-size: 0.9rem;
+        margin-bottom: 1rem;
+      }
+      section.instructors article .content .credentials {
+        font-size: 0.9rem;
+        color: #666;
+      }
+      section.testimonials {
+        background-color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 2rem;
+      }
+      section.testimonials article {
+        background-color: #f4f4f4;
+        border-radius: 20px;
+        padding: 1rem;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        width: 300px;
+        transition: transform 0.3s ease;
+      }
+      section.testimonials article:hover {
+        transform: translateY(-10px);
+      }
+      section.testimonials article img {
+        width: 3rem;
+        height: 3rem;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-right: 1rem;
+      }
+      section.testimonials article .content h2 {
+        font-size: 1rem;
+        margin-bottom: 0.5rem;
+      }
+      section.testimonials article .content p {
+        font-size: 0.9rem;
+        margin-bottom: 1rem;
+      }
+      section.free-sample {
+        background-color: var(--accent);
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        text-align: center;
+        padding: 8rem 4rem;
+      }
+      section.free-sample h1 {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+      }
+      section.free-sample p {
+        font-size: 1.5rem;
+        margin-bottom: 2rem;
+      }
+      section.free-sample .cta {
+        background-color: var(--primary);
+        color: white;
+        padding: 1rem 2rem;
+        border: none;
+        border-radius: 20px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+      section.free-sample .cta:hover {
+        background-color: var(--secondary);
+      }
+      section.pricing {
+        background-color: #f4f4f4;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 2rem;
+      }
+      section.pricing article {
+        background-color: white;
+        border-radius: 20px;
+        padding: 1rem;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        width: 300px;
+        transition: transform 0.3s ease;
+      }
+      section.pricing article:hover {
+        transform: translateY(-10px);
+      }
+      section.pricing article .content h2 {
+        font-size: 1.2rem;
+        margin-bottom: 0.5rem;
+      }
+      section.pricing article .content p {
+        font-size: 0.9rem;
+        margin-bottom: 1rem;
+      }
+      section.pricing article .content .price {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--primary);
+        margin-bottom: 1rem;
+      }
+      section.enrollment {
+        background-color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        text-align: center;
+        padding: 8rem 4rem;
+      }
+      section.enrollment h1 {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+      }
+      section.enrollment p {
+        font-size: 1.5rem;
+        margin-bottom: 2rem;
+      }
+      section.enrollment ol {
+        list-style-type: decimal;
+        margin-left: 2rem;
+      }
+      section.enrollment ol li {
+        margin-bottom: 1rem;
+      }
+      footer {
+        background-color: var(--primary);
+        color: white;
+        padding: 2rem;
+        text-align: center;
+      }
+      footer .accreditations img {
+        height: 2rem;
+        margin-right: 1rem;
+      }
+      footer .contact {
+        margin-top: 1rem;
+      }
+      footer .contact a {
+        color: white;
+        text-decoration: none;
+        margin-right: 1rem;
+        transition: color 0.3s ease;
+      }
+      footer .contact a:hover {
+        color: var(--secondary);
+      }
+      @media (max-width: 768px) {
+        header nav ul {
+          display: none;
+          flex-direction: column;
+          align-items: center;
+          width: 100%;
+          background-color: var(--primary);
+          position: absolute;
+          top: 6rem;
+          left: 0;
+        }
+        header nav ul.show {
+          display: flex;
+        }
+        header nav .toggle-btn {
+          display: block;
+        }
+        section {
+          padding: 2rem;
+        }
+        section.hero {
+          padding: 4rem 2rem;
+        }
+        section.courses {
+          grid-template-columns: 1fr;
+        }
+        section.categories,
+        section.instructors,
+        section.testimonials,
+        section.pricing {
+          flex-direction: column;
+          align-items: center;
+        }
+        section.enrollment {
+          padding: 4rem 2rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="logo">
+        <img src="logo.png" alt="Stembotix Logo" />
+        <h1>Stembotix</h1>
+      </div>
+      <nav>
+        <div class="toggle-btn" onclick="toggleMenu()">☰</div>
+        <ul id="nav-links">
+          <li><a href="#courses">Courses</a></li>
+          <li><a href="#instructors">Instructors</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#login">Login/Signup</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <section class="hero" id="hero">
+        <h1>Unlock Your Potential with Stembotix</h1>
+        <p>Enroll in our courses and start your journey to success today!</p>
+        <button class="cta">Enroll Now</button>
+      </section>
+      <section class="courses" id="courses">
+        <h2>Popular Courses</h2>
+        <article>
+          <img src="course1.jpg" alt="Course 1" />
+          <div class="content">
+            <h2>Introduction to Robotics</h2>
+            <p>Learn the basics of robotics and build your first robot.</p>
+            <div class="info">
+              <div class="rating">
+                <img src="star.png" alt="Star" /><img src="star.png" alt="Star" /><img
+                  src="star.png"
+                  alt="Star"
+                /><img src="star.png" alt="Star" /><img src="star.png" alt="Star" />
+              </div>
+              <div class="enrolled">1000+ Students</div>
+            </div>
+          </div>
+        </article>
+        <article>
+          <img src="course2.jpg" alt="Course 2" />
+          <div class="content">
+            <h2>Advanced AI</h2>
+            <p>Deep dive into artificial intelligence and machine learning.</p>
+            <div class="info">
+              <div class="rating">
+                <img src="star.png" alt="Star" /><img src="star.png" alt="Star" /><img
+                  src="star.png"
+                  alt="Star"
+                /><img src="star-half.png" alt="Star Half" />
+              </div>
+              <div class="enrolled">500+ Students</div>
+            </div>
+          </div>
+        </article>
+      </section>
+      <section class="categories" id="categories">
+        <h2>Course Categories</h2>
+        <div><img src="robotics.png" alt="Robotics" /><span>Robotics</span></div>
+        <div><img src="ai.png" alt="AI" /><span>Artificial Intelligence</span></div>
+        <div><img src="coding.png" alt="Coding" /><span>Coding</span></div>
+      </section>
+      <section class="instructors" id="instructors">
+        <h2>Meet Our Instructors</h2>
+        <article>
+          <img src="instructor1.jpg" alt="Instructor 1" />
+          <div class="content">
+            <h2>Dr. Jane Smith</h2>
+            <p>PhD in Robotics</p>
+            <div class="credentials">Certified AI Expert</div>
+          </div>
+        </article>
+        <article>
+          <img src="instructor2.jpg" alt="Instructor 2" />
+          <div class="content">
+            <h2>Mr. John Doe</h2>
+            <p>MSc in Computer Science</p>
+            <div class="credentials">15+ Years of Experience</div>
+          </div>
+        </article>
+      </section>
+      <section class="testimonials" id="testimonials">
+        <h2>What Our Students Say</h2>
+        <article>
+          <img src="student1.jpg" alt="Student 1" />
+          <div class="content">
+            <h2>Jane Doe</h2>
+            <p>I learned so much from this course! Highly recommended.</p>
+          </div>
+        </article>
+        <article>
+          <img src="student2.jpg" alt="Student 2" />
+          <div class="content">
+            <h2>John Smith</h2>
+            <p>The instructors were very knowledgeable and supportive.</p>
+          </div>
+        </article>
+      </section>
+      <section class="free-sample" id="free-sample">
+        <h1>Try a Free Sample Lesson</h1>
+        <p>Experience our high-quality learning materials firsthand.</p>
+        <button class="cta">Get Sample Lesson</button>
+      </section>
+      <section class="pricing" id="pricing">
+        <h2>Pricing & Plans</h2>
+        <article>
+          <div class="content">
+            <h2>Basic Plan</h2>
+            <p>Access to 5 courses</p>
+            <div class="price">$29/mo</div>
+          </div>
+        </article>
+        <article>
+          <div class="content">
+            <h2>Pro Plan</h2>
+            <p>Access to all courses</p>
+            <div class="price">$49/mo</div>
+          </div>
+        </article>
+      </section>
+      <section class="enrollment" id="enrollment">
+        <h1>Enrollment Process</h1>
+        <p>Follow these simple steps to enroll in a course:</p>
+        <ol>
+          <li>Choose a course that interests you.</li>
+          <li>Sign up or log in to your account.</li>
+          <li>Select a payment plan and complete your purchase.</li>
+          <li>Start learning immediately!</li>
+        </ol>
+      </section>
+    </main>
+    <footer>
+      <div class="accreditations">
+        <img src="accreditation1.png" alt="Accreditation 1" /><img
+          src="accreditation2.png"
+          alt="Accreditation 2"
+        />
+      </div>
+      <div class="contact">
+        <a href="#">Contact Us</a><a href="#">Privacy Policy</a><a href="#">Terms of Service</a>
+      </div>
+    </footer>
+    <script>
+      const navLinks = document.getElementById('nav-links');
+      function toggleMenu() {
+        navLinks.classList.toggle('show');
+      }
+      document.querySelectorAll('a[href^=#]').forEach((anchor) => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+        });
+      });
+    </script>
+  </body>
+</html>

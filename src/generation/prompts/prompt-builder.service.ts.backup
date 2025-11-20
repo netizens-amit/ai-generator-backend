@@ -1,0 +1,1181 @@
+// src/generation/prompts/prompt-builder.service.ts
+
+import { Injectable } from '@nestjs/common';
+import { GenerateWebsiteDto } from '../dto/generate-website.dto';
+import { INDUSTRY_TEMPLATES } from '../templates/industry-templates';
+import { DESIGN_SYSTEMS } from './design-systems';
+
+@Injectable()
+export class PromptBuilderService {
+
+  // src/generation/prompts/prompt-builder.service.ts
+
+  // src/generation/prompts/prompt-builder.service.ts
+
+  buildReactPrompt(prefs: GenerateWebsiteDto): string {
+    const industry = INDUSTRY_TEMPLATES[prefs.industry] || INDUSTRY_TEMPLATES['business'];
+    const design = DESIGN_SYSTEMS[prefs.designStyle] || DESIGN_SYSTEMS['modern'];
+
+    return `You are an ELITE React TypeScript developer creating a PRODUCTION-READY, PIXEL-PERFECT ${industry.name} website.
+
+# 🎯 PROJECT REQUIREMENTS
+Company: ${prefs.companyName}
+Industry: ${industry.name}
+Design: ${design.name}
+Type: ${prefs.websiteType}
+
+# 🎨 EXACT COLOR SCHEME (MANDATORY)
+Primary: ${prefs.colorScheme.primary}
+Secondary: ${prefs.colorScheme.secondary}
+Accent: ${prefs.colorScheme.accent}
+
+# 🚨 CRITICAL RULES - VIOLATION = FAILURE 🚨
+
+## Rule 1: NO TRUNCATION - COMPLETE FILES ONLY
+- NEVER use "..." or ellipsis ANYWHERE in code
+- NEVER cut off strings mid-sentence
+- NEVER leave incomplete className attributes
+- ALWAYS complete EVERY file you start
+- If you write <file path="...">, you MUST include </file> and ALL code between
+- Better to generate 3 COMPLETE files than 10 INCOMPLETE files
+
+## Rule 2: USE STANDARD TAILWIND CLASSES ONLY
+✅ CORRECT: bg-white, text-gray-900, bg-blue-500, border-gray-200, hover:bg-blue-700
+❌ WRONG: bg-background, text-foreground, bg-primary, border-border, bg-muted
+
+Examples of CORRECT Tailwind usage:
+- Buttons: \`className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transform hover:scale-105 transition-all duration-200 shadow-lg"\`
+- Cards: \`className="bg-white rounded-xl shadow-md p-6 border border-gray-200 hover:shadow-xl transition-shadow duration-300"\`
+- Sections: \`className="w-full py-20 px-4 sm:px-6 lg:px-8"\`
+- Headers: \`className="sticky top-0 z-50 bg-white shadow-md"\`
+
+## Rule 3: CRITICAL SYNTAX RULES
+- ALWAYS escape apostrophes: use "you're" NOT 'you're' OR use 'you\\'re'
+- NEVER use smart quotes ('' "") - only straight quotes (' ")
+- ALWAYS complete every string literal
+- NEVER write: className="px-4 py-2 bg-blue-... ❌
+- ALWAYS write: className="px-4 py-2 bg-blue-600" ✅
+
+## Rule 4: REQUIRED FILE STRUCTURE
+
+You MUST generate these files in this EXACT order:
+
+1. **src/index.css** - FIRST (Tailwind directives only)
+2. **src/App.tsx** - SECOND (imports all components)
+3. **src/components/Header.tsx** - Navigation with mobile menu
+4. **src/components/Hero.tsx** - Landing section with CTA
+5. **src/components/Features.tsx** - Feature cards grid
+6. **src/components/About.tsx** - Company info section
+7. **src/components/Services.tsx** - Service offerings grid
+8. **src/components/Testimonials.tsx** - Customer reviews
+9. **src/components/Contact.tsx** - Contact form
+10. **src/components/Footer.tsx** - Footer with links
+
+## Rule 5: STYLING REQUIREMENTS
+
+### ONLY Create src/index.css
+\`\`\`css
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+\`\`\`
+
+### NEVER Create:
+- ❌ App.css
+- ❌ Component.css
+- ❌ Any other CSS files
+- ❌ Inline styles with style={{}}
+- ❌ <style jsx> tags
+
+### ALWAYS Use Tailwind Classes:
+- Responsive: sm:, md:, lg:, xl:
+- Spacing: p-4, px-6, py-8, gap-4
+- Colors: bg-white, text-gray-900, bg-blue-500
+- Shadows: shadow-md, shadow-lg, shadow-xl
+- Transitions: transition-all, duration-200, hover:scale-105
+- Borders: border, border-gray-200, rounded-lg
+
+# 📋 REQUIRED SECTIONS
+${industry.sections.map((s, i) => `${i + 1}. ${s}`).join('\n')}
+
+# ⚡ INTERACTIVE FEATURES
+${industry.features.map((f, i) => `${i + 1}. ${f}`).join('\n')}
+
+# 🎨 DESIGN SYSTEM: ${design.name}
+${design.description}
+
+Typography: ${design.typography.headings} / ${design.typography.body}
+Spacing: ${design.spacing.sections}
+Components: ${design.components.buttons}
+Layout: ${design.layout}
+
+# 📦 COMPLETE APP.TSX TEMPLATE
+
+\`\`\`typescript
+import React from 'react';
+import Header from './components/Header';
+import Hero from './components/Hero';
+import Features from './components/Features';
+import About from './components/About';
+import Services from './components/Services';
+import Testimonials from './components/Testimonials';
+import Contact from './components/Contact';
+import Footer from './components/Footer';
+import './index.css';
+
+function App() {
+  return (
+    <div className="min-h-screen bg-gray-50">
+      <Header />
+      <main>
+        <Hero />
+        <Features />
+        <About />
+        <Services />
+        <Testimonials />
+        <Contact />
+      </main>
+      <Footer />
+    </div>
+  );
+}
+
+export default App;
+\`\`\`
+
+# 🎯 COMPONENT EXAMPLES
+
+## Header Component (EXACT STRUCTURE TO FOLLOW):
+\`\`\`typescript
+import React, { useState } from 'react';
+
+function Header() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  return (
+    <header className="sticky top-0 z-50 bg-white shadow-md">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between items-center h-16">
+          <div className="text-2xl font-bold text-blue-600">${prefs.companyName}</div>
+          
+          {/* Desktop Navigation */}
+          <nav className="hidden md:flex space-x-8">
+            <a href="#home" className="text-gray-700 hover:text-blue-600 transition-colors">Home</a>
+            <a href="#features" className="text-gray-700 hover:text-blue-600 transition-colors">Features</a>
+            <a href="#about" className="text-gray-700 hover:text-blue-600 transition-colors">About</a>
+            <a href="#services" className="text-gray-700 hover:text-blue-600 transition-colors">Services</a>
+            <a href="#contact" className="text-gray-700 hover:text-blue-600 transition-colors">Contact</a>
+          </nav>
+
+          {/* Mobile Menu Button */}
+          <button
+            onClick={() => setMenuOpen(!menuOpen)}
+            className="md:hidden text-gray-700 hover:text-blue-600"
+            aria-label="Toggle menu"
+          >
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+        </div>
+
+        {/* Mobile Navigation */}
+        {menuOpen && (
+          <nav className="md:hidden py-4 space-y-2">
+            <a href="#home" className="block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded">Home</a>
+            <a href="#features" className="block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded">Features</a>
+            <a href="#about" className="block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded">About</a>
+            <a href="#services" className="block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded">Services</a>
+            <a href="#contact" className="block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded">Contact</a>
+          </nav>
+        )}
+      </div>
+    </header>
+  );
+}
+
+export default Header;
+\`\`\`
+
+## Hero Component (EXACT STRUCTURE TO FOLLOW):
+\`\`\`typescript
+import React from 'react';
+
+function Hero() {
+  return (
+    <section className="relative bg-gradient-to-r from-blue-600 to-blue-800 text-white py-20 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto text-center">
+        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">
+          Welcome to ${prefs.companyName}
+        </h1>
+        <p className="text-xl sm:text-2xl mb-8 max-w-3xl mx-auto">
+          Your trusted partner for ${industry.name} solutions
+        </p>
+        <a
+          href="#contact"
+          className="inline-block px-8 py-4 bg-white text-blue-600 font-semibold rounded-lg shadow-lg hover:bg-gray-100 transform hover:scale-105 transition-all duration-200"
+        >
+          Get Started
+        </a>
+      </div>
+    </section>
+  );
+}
+
+export default Hero;
+\`\`\`
+
+## Features Component (EXACT STRUCTURE TO FOLLOW):
+\`\`\`typescript
+import React from 'react';
+
+interface Feature {
+  icon: string;
+  title: string;
+  description: string;
+}
+
+function Features() {
+  const features: Feature[] = [
+    {
+      icon: '🚀',
+      title: 'Fast Performance',
+      description: 'Lightning-fast load times and optimal performance'
+    },
+    {
+      icon: '💼',
+      title: 'Professional',
+      description: 'Enterprise-grade solutions for your business'
+    },
+    {
+      icon: '🛠️',
+      title: 'Customizable',
+      description: 'Tailored to meet your specific needs'
+    },
+    {
+      icon: '🔒',
+      title: 'Secure',
+      description: 'Bank-level security for your data'
+    }
+  ];
+
+  return (
+    <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
+      <div className="max-w-7xl mx-auto">
+        <h2 className="text-3xl sm:text-4xl font-bold text-center text-gray-900 mb-12">
+          Our Features
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {features.map((feature, index) => (
+            <div
+              key={index}
+              className="bg-white rounded-xl shadow-md p-6 border border-gray-200 hover:shadow-xl transform hover:scale-105 transition-all duration-300"
+            >
+              <div className="text-4xl mb-4">{feature.icon}</div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">{feature.title}</h3>
+              <p className="text-gray-600">{feature.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+export default Features;
+\`\`\`
+
+# ❌ COMMON MISTAKES TO AVOID
+
+## NEVER Do This:
+\`\`\`typescript
+// ❌ WRONG - Truncated className
+<button className="px-4 py-2 bg-blue-600 hover:bg-blue-...
+
+// ❌ WRONG - Smart quotes
+const text = "Welcome to our site";
+
+// ❌ WRONG - Unescaped apostrophe
+const text = 'It's amazing';
+
+// ❌ WRONG - Custom Tailwind classes
+<div className="bg-background text-foreground">
+
+// ❌ WRONG - Incomplete file
+<file path="src/components/Hero.tsx">
+import React from 'react';
+function Hero() {
+  return (
+    <div>...
+// Missing closing tags and </file>
+\`\`\`
+
+## ALWAYS Do This:
+\`\`\`typescript
+// ✅ CORRECT - Complete className
+<button className="px-4 py-2 bg-blue-600 hover:bg-blue-700 rounded-lg">
+
+// ✅ CORRECT - Straight quotes
+const text = "Welcome to our site";
+
+// ✅ CORRECT - Escaped apostrophe or double quotes
+const text = "It's amazing";
+const text2 = 'It\\'s amazing';
+
+// ✅ CORRECT - Standard Tailwind classes
+<div className="bg-white text-gray-900">
+
+// ✅ CORRECT - Complete file
+<file path="src/components/Hero.tsx">
+import React from 'react';
+
+function Hero() {
+  return (
+    <div className="py-20">
+      <h1>Hero Section</h1>
+    </div>
+  );
+}
+
+export default Hero;
+</file>
+\`\`\`
+
+# 📦 OUTPUT FORMAT
+
+Generate files in this EXACT XML format:
+
+<file path="src/index.css">
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+</file>
+
+<file path="src/App.tsx">
+[COMPLETE App.tsx code here]
+</file>
+
+<file path="src/components/Header.tsx">
+[COMPLETE Header.tsx code here]
+</file>
+
+[... Continue for ALL components ...]
+
+# ✅ FINAL CHECKLIST
+
+Before submitting, verify:
+- [ ] All files are COMPLETE (no truncation, no ellipsis)
+- [ ] All className attributes use STANDARD Tailwind classes
+- [ ] All strings use straight quotes and proper escaping
+- [ ] All components have default export
+- [ ] Mobile responsive (sm:, md:, lg: breakpoints)
+- [ ] All imports match created files
+- [ ] NO syntax errors
+- [ ] NO smart quotes
+- [ ] NO custom Tailwind classes
+
+# 🚀 GENERATION INSTRUCTIONS
+
+1. Generate src/index.css FIRST
+2. Generate src/App.tsx SECOND
+3. Generate ALL 8 component files
+4. Ensure EVERY file is COMPLETE
+5. Use ONLY standard Tailwind classes
+6. Make it FULLY responsive
+7. Add smooth transitions and hover effects
+8. Use realistic ${industry.name} content
+
+This is going LIVE - make it PERFECT!`;
+  }
+
+  buildHTMLPrompt(prefs: GenerateWebsiteDto): string {
+
+# 🎯 PROJECT REQUIREMENTS
+Company: ${prefs.companyName}
+Industry: ${industry.name}
+Design: ${design.name}
+Type: ${prefs.websiteType}
+
+# 🎨 EXACT COLOR SCHEME (MANDATORY)
+Primary: ${prefs.colorScheme.primary}
+Secondary: ${prefs.colorScheme.secondary}
+Accent: ${prefs.colorScheme.accent}
+
+Use these colors in CSS variables:
+--color-primary: ${prefs.colorScheme.primary};
+--color-secondary: ${prefs.colorScheme.secondary};
+--color-accent: ${prefs.colorScheme.accent};
+--color-text: #333333;
+--color-bg: #ffffff;
+--color-bg-alt: #f8f9fa;
+
+# 📋 REQUIRED SECTIONS
+${industry.sections.map((s, i) => `${i + 1}. ${s}`).join('\n')}
+
+# ⚡ INTERACTIVE FEATURES
+${industry.features.map((f, i) => `${i + 1}. ${f}`).join('\n')}
+
+# 🎨 DESIGN SYSTEM: ${design.name}
+${design.description}
+
+Typography: ${design.typography.headings} / ${design.typography.body}
+Spacing: ${design.spacing.sections}
+Components: ${design.components.buttons}
+Layout: ${design.layout}
+
+# 🏗️ COMPONENT ARCHITECTURE
+
+Create SEPARATE component files. Each component MUST:
+- Be a functional React component
+- Use TypeScript with proper interfaces
+- Export as DEFAULT (export default ComponentName)
+- Be fully self-contained
+- Have proper CSS classes that match App.css
+
+Required Components:
+1. **Header.tsx** - Navigation with mobile menu (Hamburger)
+2. **Hero.tsx** - Landing section with CTA and Hero Image
+3. **Features.tsx** - Feature cards grid (3-4 columns)
+4. **About.tsx** - Company info section with image
+5. **Services.tsx** - Service offerings grid
+6. **Testimonials.tsx** - Customer reviews slider or grid
+7. **Contact.tsx** - Contact form with validation
+8. **Footer.tsx** - Footer with links and social icons
+
+# 🔧 TECHNICAL REQUIREMENTS
+
+## 1. App.tsx Structure
+\`\`\`typescript
+import React from 'react';
+import Header from './components/Header';
+import Hero from './components/Hero';
+import Features from './components/Features';
+import About from './components/About';
+import Services from './components/Services';
+import Testimonials from './components/Testimonials';
+import Contact from './components/Contact';
+import Footer from './components/Footer';
+import './App.css';
+
+function App() {
+  return (
+    <div className="app">
+      <Header />
+      <main>
+        <Hero />
+        <Features />
+        <About />
+        <Services />
+        <Testimonials />
+        <Contact />
+      </main>
+      <Footer />
+    </div>
+  );
+}
+
+export default App;
+\`\`\`
+
+## 2. Complete App.css Template - USE THIS STRUCTURE
+
+Here is the EXACT CSS structure you must follow. Copy this and adapt colors/content:
+
+\`\`\`css
+/* ===== CSS RESET ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ===== CSS VARIABLES ===== */
+:root {
+  --color-primary: ${prefs.colorScheme.primary};
+  --color-secondary: ${prefs.colorScheme.secondary};
+  --color-accent: ${prefs.colorScheme.accent};
+  --color-text: #333333;
+  --color-bg: #ffffff;
+  --color-bg-alt: #f8f9fa;
+  --font-heading: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+/* ===== GLOBAL STYLES ===== */
+body {
+  font-family: var(--font-body);
+  line-height: 1.6;
+  color: var(--color-text);
+  background: var(--color-bg);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ===== CONTAINER ===== */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  width: 100%;
+}
+
+/* ===== HEADER ===== */
+.header {
+  background: white;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  padding: 1rem 0;
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.nav {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: var(--color-text);
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.nav-link:hover {
+  color: var(--color-primary);
+}
+
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* ===== HERO SECTION ===== */
+.hero {
+  padding: 5rem 0;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+  color: white;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  font-size: 1.25rem;
+  margin-bottom: 2rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ===== SECTIONS ===== */
+.section {
+  padding: 5rem 0;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 3rem;
+  color: var(--color-primary);
+}
+
+/* ===== FEATURES / SERVICES GRID ===== */
+.features-grid,
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.feature-card,
+.service-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.feature-card:hover,
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.feature-icon,
+.service-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.feature-card h3,
+.service-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: var(--color-primary);
+}
+
+/* ===== TESTIMONIALS ===== */
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.testimonial-card {
+  background: var(--color-bg-alt);
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.rating {
+  color: #ffc107;
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.review {
+  font-style: italic;
+  margin-bottom: 1rem;
+  line-height: 1.8;
+}
+
+.author .name {
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+/* ===== BUTTONS ===== */
+.btn {
+  display: inline-block;
+  padding: 0.875rem 2rem;
+  background: var(--color-accent);
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-size: 1rem;
+}
+
+.btn:hover {
+  background: var(--color-primary);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* ===== CONTACT FORM ===== */
+.contact-form {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: var(--color-text);
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 0.875rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 1rem;
+  transition: border-color 0.3s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--color-primary);
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.error {
+  color: #dc3545;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+}
+
+/* ===== FOOTER ===== */
+.footer {
+  background: #1a1a1a;
+  color: white;
+  padding: 3rem 0 1.5rem;
+  margin-top: 5rem;
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.footer-section h3 {
+  margin-bottom: 1rem;
+  color: var(--color-accent);
+}
+
+.footer-links {
+  list-style: none;
+}
+
+.footer-links li {
+  margin-bottom: 0.5rem;
+}
+
+.footer-links a {
+  color: #ccc;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-links a:hover {
+  color: white;
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 2rem;
+  border-top: 1px solid #333;
+  color: #888;
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 768px) {
+  .nav {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: white;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+  }
+
+  .nav.nav-open {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+
+  .section-title {
+    font-size: 1.875rem;
+  }
+
+  .features-grid,
+  .services-grid,
+  .testimonials-grid {
+    grid-template-columns: 1fr;
+  }
+}
+\`\`\`
+
+## 3. Image Handling
+
+## 5. TypeScript Types
+- Use interfaces for props
+- Type all state variables
+- Type all event handlers
+- Example: \`interface TestimonialProps { name: string; review: string; rating: number; }\`
+
+## 6. React Best Practices
+- Use functional components only
+- useState for state management
+- useEffect for side effects if needed
+- Event handlers properly typed
+- Fragments where needed
+- Keys for list items (use index as fallback)
+
+# ❌ CRITICAL RULES - MUST FOLLOW
+
+1. **NO SYNTAX ERRORS** - Code must compile perfectly
+2. **NO JSX ERRORS** - All JSX must be valid
+3. **PROPER ARRAY RENDERING** - Use: \`{items.map((item, index) => <div key={index}>{item}</div>)}\`
+4. **STAR RATINGS** - Use: \`{'★'.repeat(rating)}\` NOT \`[...Array(rating)]\`
+5. **ALL EXPORTS** - Every component: \`export default ComponentName;\`
+6. **CSS CLASSES MATCH** - Every className in JSX must exist in App.css
+7. **NO LOREM IPSUM** - Use realistic ${industry.name} content
+8. **NO COMMENTS** - Production code only
+9. **NO CONSOLE.LOGS** - No debugging code
+10. **EXACT COLORS** - Use provided color variables
+11. **IMAGES** - Use \`https://placehold.co\` for all images.
+
+# ✅ VALIDATION CHECKLIST
+
+Before generating, ensure:
+- [ ] All components have default export
+- [ ] All JSX is syntactically correct
+- [ ] All className attributes match CSS classes
+- [ ] No TypeScript errors
+- [ ] No array syntax errors
+- [ ] All imports are correct
+- [ ] CSS variables are defined
+- [ ] Mobile responsive with media queries
+- [ ] All interactive features work
+- [ ] Content is realistic and industry-appropriate
+
+# 📦 OUTPUT JSON FORMAT
+
+Return EXACTLY this structure:
+
+{
+  "appTsx": "COMPLETE App.tsx",
+  "appCss": "COMPLETE App.css with ALL styles",
+  "indexTsx": "React entry point",
+  "packageJson": "Valid package.json",
+  "components": [
+    { "fileName": "Header.tsx", "code": "..." },
+    { "fileName": "Hero.tsx", "code": "..." },
+    { "fileName": "Features.tsx", "code": "..." },
+    { "fileName": "About.tsx", "code": "..." },
+    { "fileName": "Services.tsx", "code": "..." },
+    { "fileName": "Testimonials.tsx", "code": "..." },
+    { "fileName": "Contact.tsx", "code": "..." },
+    { "fileName": "Footer.tsx", "code": "..." }
+  ]
+}
+
+# 🎯 COMPONENT EXAMPLES - FOLLOW THESE STRUCTURES
+
+## Header Component Example:
+\`\`\`typescript
+import React, { useState } from 'react';
+
+function Header() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  return (
+    <header className='header'>
+      <div className='container'>
+        <div className='header-content'>
+          <div className='logo'>${prefs.companyName}</div>
+          <button
+            className='menu-toggle'
+            onClick={() => setMenuOpen(!menuOpen)}
+            aria-label='Toggle menu'
+          >
+            ☰
+          </button>
+          <nav className={\`nav \${menuOpen ? 'nav-open' : ''}\`}>
+            <a href='#home' className='nav-link'>Home</a>
+            <a href='#features' className='nav-link'>Features</a>
+            <a href='#about' className='nav-link'>About</a>
+            <a href='#services' className='nav-link'>Services</a>
+            <a href='#contact' className='nav-link'>Contact</a>
+          </nav>
+        </div>
+      </div>
+    </header>
+  );
+}
+
+export default Header;
+\`\`\`
+
+## Hero Component Example:
+\`\`\`typescript
+import React from 'react';
+
+function Hero() {
+  return (
+    <section className='hero'>
+      <div className='container'>
+        <h1>Your Main Headline Here</h1>
+        <p>Compelling description of your ${industry.name} business and value proposition.</p>
+        <a href='#contact' className='btn'>Get Started</a>
+      </div>
+    </section>
+  );
+}
+
+export default Hero;
+\`\`\`
+
+## Features Component Example:
+\`\`\`typescript
+import React from 'react';
+
+interface Feature {
+  icon: string;
+  title: string;
+  description: string;
+}
+
+function Features() {
+  const features: Feature[] = [
+    {
+      icon: '🚀',
+      title: 'Feature One',
+      description: 'Description of this amazing feature.'
+    },
+    {
+      icon: '💼',
+      title: 'Feature Two',
+      description: 'Description of this amazing feature.'
+    },
+    {
+      icon: '🛠️',
+      title: 'Feature Three',
+      description: 'Description of this amazing feature.'
+    }
+  ];
+
+  return (
+    <section className='section'>
+      <div className='container'>
+        <h2 className='section-title'>Our Features</h2>
+        <div className='features-grid'>
+          {features.map((feature, index) => (
+            <div key={index} className='feature-card'>
+              <div className='feature-icon'>{feature.icon}</div>
+              <h3>{feature.title}</h3>
+              <p>{feature.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+export default Features;
+\`\`\`
+
+# 🎯 EXAMPLE: Testimonials Component (CORRECT WAY)
+
+\`\`\`typescript
+import React from 'react';
+
+interface Testimonial {
+  name: string;
+  review: string;
+  rating: number;
+  company: string;
+}
+
+function Testimonials() {
+  const testimonials: Testimonial[] = [
+    {
+      name: 'John Smith',
+      review: 'Excellent service and great results!',
+      rating: 5,
+      company: 'Tech Corp'
+    },
+    {
+      name: 'Jane Doe',
+      review: 'Highly professional and reliable.',
+      rating: 5,
+      company: 'Business Inc'
+    },
+    {
+      name: 'Mike Johnson',
+      review: 'Outstanding experience from start to finish.',
+      rating: 5,
+      company: 'Solutions LLC'
+    }
+  ];
+
+  return (
+    <section className="testimonials section" id="testimonials">
+      <div className="container">
+        <h2 className="section-title">What Our Clients Say</h2>
+        <div className="testimonials-grid">
+          {testimonials.map((testimonial, index) => (
+            <div key={index} className="testimonial-card">
+              <div className="rating">
+                {'★'.repeat(testimonial.rating)}
+              </div>
+              <p className="review">"{testimonial.review}"</p>
+              <div className="author">
+                <p className="name">{testimonial.name}</p>
+                <p className="company">{testimonial.company}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+export default Testimonials;
+\`\`\`
+
+# 🚀 FINAL INSTRUCTIONS
+
+Generate a COMPLETE, PRODUCTION-READY, ERROR-FREE ${industry.name} website for ${prefs.companyName}.
+
+- ALL code must work perfectly in Sandpack/CodeSandbox
+- ZERO syntax errors
+- PERFECT CSS styling matching ${design.name} design
+- FULLY responsive (mobile, tablet, desktop)
+- ALL interactive features functional
+- Professional ${industry.name} content
+- Use EXACT colors provided
+
+This is going LIVE - make it PERFECT!
+
+- Do NOT use any external dependencies or icon libraries (like react-icons).
+- Only use inline SVG, Unicode, or semantic elements for icons.
+- All code must work in a plain create-react-app or Sandpack/CodeSandbox environment with only the dependencies in the default provided package.json.
+`;
+  }
+
+buildHTMLPrompt(prefs: GenerateWebsiteDto): string {
+  const industry = INDUSTRY_TEMPLATES[prefs.industry] || INDUSTRY_TEMPLATES['business'];
+  const design = DESIGN_SYSTEMS[prefs.designStyle] || DESIGN_SYSTEMS['modern'];
+
+  return `You are an expert web developer creating a professional ${industry.name} website with HTML5, CSS3, and vanilla JavaScript.
+
+# PROJECT DETAILS
+Company: ${prefs.companyName}
+Industry: ${industry.name}
+Design Style: ${design.name}
+Type: ${prefs.websiteType}
+
+# COLOR PALETTE (MANDATORY)
+Primary: ${prefs.colorScheme.primary}
+Secondary: ${prefs.colorScheme.secondary}
+Accent: ${prefs.colorScheme.accent}
+
+${design.colors.usage}
+
+# REQUIRED SECTIONS (ALL MUST BE INCLUDED)
+${industry.sections.map((s, i) => `${i + 1}. ${s}`).join('\n')}
+
+# FEATURES TO IMPLEMENT
+${industry.features.map((f, i) => `${i + 1}. ${f}`).join('\n')}
+
+# DESIGN STYLE: ${design.name}
+${design.description}
+
+Typography: ${design.typography.headings} / ${design.typography.body}
+Sizes: ${design.typography.sizes}
+Spacing: ${design.spacing.sections}
+Buttons: ${design.components.buttons}
+Cards: ${design.components.cards}
+Layout: ${design.layout}
+Effects: ${design.effects}
+
+# CONTENT STRATEGY
+${industry.contentGuidelines}
+
+# CTAs
+${industry.ctas.join(', ')}
+
+# HTML REQUIREMENTS
+- Semantic HTML5 (header, nav, main, article, section, aside, footer)
+- Proper heading hierarchy (single h1, then h2, h3)
+- Meta tags: viewport, description, charset UTF-8
+- Accessible forms with labels and validation
+- Image alt attributes
+- Clean, indented structure
+
+# CSS REQUIREMENTS
+- Mobile-first responsive design
+- CSS custom properties for colors: --primary, --secondary, --accent
+- Flexbox and Grid layouts
+- Smooth transitions (transition: all 0.3s ease)
+- Hover effects: transform, opacity, box-shadow changes
+- Media queries:
+  * Mobile: default (< 768px)
+  * Tablet: @media (min-width: 768px)
+  * Desktop: @media (min-width: 1024px)
+- Modern CSS: clamp(), aspect-ratio, grid-template-areas
+
+# JAVASCRIPT REQUIREMENTS
+- Vanilla JavaScript (no frameworks)
+- Mobile menu toggle functionality
+- Smooth scroll navigation (event delegation)
+- Form validation with visual feedback
+- Modal/popup functionality
+- Scroll animations (Intersection Observer)
+- Local storage for cart/favorites
+- No console.logs or debugging code
+
+# OUTPUT JSON
+{
+  "html": "Complete HTML document with <!DOCTYPE html>",
+  "css": "Complete stylesheet",
+  "js": "Complete JavaScript functionality",
+  "metadata": {
+    "title": "Page title (company + industry)",
+    "description": "SEO meta description (155 chars max)",
+    "colorScheme": { "primary": "...", "secondary": "...", "accent": "..." }
+  }
+}
+
+# RULES
+- Use EXACT colors provided
+- Include ALL sections
+- Fully functional features
+- Realistic content only
+- Match ${design.name} style
+- NO emojis
+- Production-ready
+- Industry-appropriate for ${industry.name}
+`;
+}
+
+getPromptStats(prompt: string) {
+  const words = prompt.split(/\s+/).length;
+  const tokens = Math.ceil(words * 1.3);
+  return { words, tokens };
+}
+}

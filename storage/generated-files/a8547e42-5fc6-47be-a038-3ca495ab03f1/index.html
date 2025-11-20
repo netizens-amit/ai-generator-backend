@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Placewera is a leading education technology company dedicated to providing innovative digital solutions that transform learning experiences and foster growth."
+    />
+    <title>Placewera - Empowering Education Through Digital Solutions</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="header">
+      <nav class="navbar">
+        <a href="#home" class="logo">Placewera</a>
+        <div class="hamburger" aria-label="Toggle navigation menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <ul class="nav-menu">
+          <li><a href="#home" class="nav-link">Home</a></li>
+          <li><a href="#about" class="nav-link">About</a></li>
+          <li><a href="#services" class="nav-link">Services</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section id="home" class="hero fade-in">
+        <div class="hero-content">
+          <h1>Innovate. Educate. Elevate.</h1>
+          <p>
+            Transforming the learning landscape with cutting-edge digital solutions for a brighter
+            future.
+          </p>
+          <a href="#services" class="btn primary-btn">Explore Our Solutions</a>
+        </div>
+      </section>
+
+      <section id="services" class="features section-padding">
+        <h2 class="section-title fade-in-up">Our Digital Education Solutions</h2>
+        <div class="feature-grid">
+          <div class="feature-card animate-on-scroll">
+            <span class="feature-icon">📚</span>
+            <h3>Interactive Learning Platforms</h3>
+            <p>
+              Engaging platforms designed to make learning dynamic and accessible for all students.
+            </p>
+          </div>
+          <div class="feature-card animate-on-scroll">
+            <span class="feature-icon">💡</span>
+            <h3>Personalized Study Tools</h3>
+            <p>
+              Adaptive tools that cater to individual learning styles and paces, maximizing
+              potential.
+            </p>
+          </div>
+          <div class="feature-card animate-on-scroll">
+            <span class="feature-icon">📈</span>
+            <h3>Data-Driven Analytics</h3>
+            <p>
+              Insights to track progress, identify trends, and enhance educational outcomes
+              efficiently.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="about" class="about section-padding">
+        <h2 class="section-title fade-in-up">About Placewera</h2>
+        <div class="about-content animate-on-scroll">
+          <p>
+            Placewera is a forward-thinking education technology company dedicated to
+            revolutionizing learning experiences. We believe in harnessing the power of digital
+            innovation to create accessible, engaging, and effective educational tools. Our mission
+            is to empower students, educators, and institutions with solutions that foster growth,
+            improve outcomes, and prepare learners for the challenges of tomorrow. Through our
+            commitment to excellence and continuous improvement, Placewera is shaping the future of
+            education, one digital solution at a time.
+          </p>
+        </div>
+      </section>
+
+      <section id="contact" class="contact section-padding">
+        <h2 class="section-title fade-in-up">Get In Touch</h2>
+        <form class="contact-form animate-on-scroll" id="contactForm">
+          <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required aria-label="Your Name" />
+            <div class="error-message" id="nameError"></div>
+          </div>
+          <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required aria-label="Your Email" />
+            <div class="error-message" id="emailError"></div>
+          </div>
+          <div class="form-group">
+            <label for="message">Message:</label>
+            <textarea
+              id="message"
+              name="message"
+              rows="5"
+              required
+              aria-label="Your Message"
+            ></textarea>
+            <div class="error-message" id="messageError"></div>
+          </div>
+          <button type="submit" class="btn primary-btn submit-btn">Send Message</button>
+        </form>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-content">
+        <p>&copy; 2023 Placewera. All rights reserved.</p>
+        <div class="social-links">
+          <a href="#" aria-label="Facebook"
+            ><img src="https://img.icons8.com/ios-filled/24/ffffff/facebook-new.png" alt="Facebook"
+          /></a>
+          <a href="#" aria-label="Twitter"
+            ><img src="https://img.icons8.com/ios-filled/24/ffffff/twitter.png" alt="Twitter"
+          /></a>
+          <a href="#" aria-label="LinkedIn"
+            ><img src="https://img.icons8.com/ios-filled/24/ffffff/linkedin.png" alt="LinkedIn"
+          /></a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

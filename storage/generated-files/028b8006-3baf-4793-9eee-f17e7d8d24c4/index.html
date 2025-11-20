@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Amit Vala - Creative Developer | Portfolio &amp; Personal Brand"
+    />
+    <title>Amit Vala - Portfolio & Personal Brand</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <div class="logo">Amit Vala</div>
+        <ul class="nav-links">
+          <li><a href="#work">Work</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#blog">Blog</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="menu-toggle" id="mobile-menu">
+          <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+        </div>
+      </nav>
+    </header>
+    <section class="hero" id="hero">
+      <div class="hero-content">
+        <h1>Bringing Creativity to Your Projects</h1>
+        <p>Your digital presence deserves the best. Let's build something amazing together.</p>
+        <a href="#work" class="cta">View Work</a>
+      </div>
+    </section>
+    <section class="featured-work" id="work">
+      <h2>Featured Work</h2>
+      <div class="filter-buttons">
+        <button onclick='filterWork("all")'>All</button
+        ><button onclick='filterWork("web")'>Web</button
+        ><button onclick='filterWork("app")'>App</button>
+      </div>
+      <div class="work-grid">
+        <div class="work-card" data-category="web">
+          <img src="https://via.placeholder.com/1000x600" alt="Project 1" />
+          <div class="card-content">
+            <h3>Project 1</h3>
+            <p class="category">Web Development</p>
+            <p>Technologies: React, Node.js, TypeScript</p>
+            <p>Increased conversion by 45%, Built in 3 weeks</p>
+            <p>Role: Lead Developer</p>
+            <a href="#" class="case-study">Read Case Study</a>
+          </div>
+        </div>
+        <div class="work-card" data-category="app">
+          <img src="https://via.placeholder.com/1000x600" alt="Project 2" />
+          <div class="card-content">
+            <h3>Project 2</h3>
+            <p class="category">App Development</p>
+            <p>Technologies: React Native, Swift</p>
+            <p>Enhanced user experience, Released in 2 months</p>
+            <p>Role: UI/UX Designer</p>
+            <a href="#" class="case-study">Read Case Study</a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="skills" id="skills">
+      <h2>Skills &amp; Expertise</h2>
+      <div class="skills-grid">
+        <div class="skill-item">
+          <img src="https://via.placeholder.com/50x50" alt="React" />
+          <div class="skill-desc">React</div>
+          <div class="progress-bar"><div class="progress" style="width: 80%"></div></div>
+        </div>
+        <div class="skill-item">
+          <img src="https://via.placeholder.com/50x50" alt="Node.js" />
+          <div class="skill-desc">Node.js</div>
+          <div class="progress-bar"><div class="progress" style="width: 75%"></div></div>
+        </div>
+        <div class="skill-item">
+          <img src="https://via.placeholder.com/50x50" alt="TypeScript" />
+          <div class="skill-desc">TypeScript</div>
+          <div class="progress-bar"><div class="progress" style="width: 70%"></div></div>
+        </div>
+      </div>
+    </section>
+    <section class="experience" id="experience">
+      <h2>Work Experience</h2>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <h3>Software Developer</h3>
+            <p>ABC Company</p>
+            <p>Jun 2021 - Present</p>
+            <p>Developed and maintained web applications</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <h3>Frontend Developer</h3>
+            <p>XYZ Agency</p>
+            <p>Jan 2020 - May 2021</p>
+            <p>Designed and implemented user interfaces</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="testimonials" id="testimonials">
+      <h2>What Clients Say</h2>
+      <div class="testimonial-grid">
+        <div class="testimonial">
+          <img src="https://via.placeholder.com/50x50" alt="Client 1" />
+          <div class="testimonial-content">
+            <p>
+              Working with Amit was a great experience. He delivered a high-quality product on time.
+            </p>
+            <p><strong>John Doe</strong><br />CTO, Tech Solutions</p>
+          </div>
+        </div>
+        <div class="testimonial">
+          <img src="https://via.placeholder.com/50x50" alt="Client 2" />
+          <div class="testimonial-content">
+            <p>
+              Amit's creativity and expertise in web development were instrumental in our project
+              success.
+            </p>
+            <p><strong>Jane Smith</strong><br />Founder, Design Co.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="services" id="services">
+      <h2>Services Offered</h2>
+      <div class="services-grid">
+        <div class="service-item">
+          <h3>Web Development</h3>
+          <p>Build robust, scalable web applications</p>
+          <p>$5000 - $15000</p>
+        </div>
+        <div class="service-item">
+          <h3>App Development</h3>
+          <p>Create intuitive, user-friendly mobile apps</p>
+          <p>$7000 - $20000</p>
+        </div>
+        <div class="service-item">
+          <h3>UI/UX Design</h3>
+          <p>Design engaging and intuitive user interfaces</p>
+          <p>$3000 - $10000</p>
+        </div>
+      </div>
+    </section>
+    <section class="blog" id="blog">
+      <h2>Latest Blog Posts</h2>
+      <div class="blog-grid">
+        <article class="blog-post">
+          <h3>Blog Post 1</h3>
+          <p>Published on Jan 1, 2023</p>
+          <p>Brief summary of the blog post...</p>
+          <a href="#">Read More</a>
+        </article>
+        <article class="blog-post">
+          <h3>Blog Post 2</h3>
+          <p>Published on Dec 15, 2022</p>
+          <p>Brief summary of the blog post...</p>
+          <a href="#">Read More</a>
+        </article>
+      </div>
+    </section>
+    <section class="contact" id="contact">
+      <h2>Get in Touch</h2>
+      <form id="contact-form">
+        <label for="name">Name</label><input type="text" id="name" name="name" required /><label
+          for="email"
+          >Email</label
+        ><input type="email" id="email" name="email" required /><label for="message">Message</label
+        ><textarea id="message" name="message" required></textarea
+        ><button type="submit">Send Message</button>
+      </form>
+      <div class="social-links">
+        <a href="#"><img src="https://via.placeholder.com/30x30" alt="LinkedIn" /></a
+        ><a href="#"><img src="https://via.placeholder.com/30x30" alt="Twitter" /></a
+        ><a href="#"><img src="https://via.placeholder.com/30x30" alt="GitHub" /></a>
+      </div>
+    </section>
+    <footer>
+      <p>&copy; 2023 Amit Vala. All rights reserved.</p>
+      <a href="#">Download Resume</a>
+      <div class="social-links">
+        <a href="#"><img src="https://via.placeholder.com/30x30" alt="LinkedIn" /></a
+        ><a href="#"><img src="https://via.placeholder.com/30x30" alt="Twitter" /></a
+        ><a href="#"><img src="https://via.placeholder.com/30x30" alt="GitHub" /></a>
+      </div>
+      <div class="theme-toggle">
+        <label for="theme-switch"
+          ><input type="checkbox" id="theme-switch" /><span class="slider round"></span
+        ></label>
+      </div>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>

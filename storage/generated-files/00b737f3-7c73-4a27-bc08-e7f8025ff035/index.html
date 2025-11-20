@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Cypher Tech provides enterprise-grade software solutions with powerful features designed for modern businesses."
+    />
+    <title>Cypher Tech - Technology SaaS</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Montserrat:wght@700&family=Lato:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <div class="logo">Cypher<span>Tech</span></div>
+        <ul class="nav-links">
+          <li><a href="#features">Features</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#resources">Resources</a></li>
+          <li><a href="#" class="login">Login</a></li>
+          <li><a href="#" class="signup">Sign Up</a></li>
+        </ul>
+        <div class="hamburger"></div>
+      </nav>
+
+      <section class="hero">
+        <div class="hero-content">
+          <h1>Transform Your Business with Intelligent Software</h1>
+          <p>
+            Secure, scalable, and integrated solutions that empower your team to reach new heights.
+          </p>
+          <div class="hero-buttons">
+            <button class="btn-primary" id="start-trial">Start Free Trial</button>
+            <button class="btn-secondary" id="watch-demo">Watch Demo</button>
+          </div>
+        </div>
+        <div class="hero-video">
+          <img src="https://via.placeholder.com/800x450" alt="Product demo video placeholder" />
+        </div>
+      </section>
+    </header>
+
+    <main>
+      <section class="features" id="features">
+        <h2>Powerful Features</h2>
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon" style="background: #f97316">A</div>
+            <h3>Automation Engine</h3>
+            <p>Create custom workflows that reduce manual tasks and increase efficiency.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon" style="background: #fb923c">B</div>
+            <h3>Advanced Analytics</h3>
+            <p>Get deep insights with real-time dashboards and predictive analytics.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon" style="background: #fbbf24">C</div>
+            <h3>Secure Infrastructure</h3>
+            <p>Military-grade encryption and SOC 2 compliance for your peace of mind.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon" style="background: #f97316">D</div>
+            <h3>API Integration</h3>
+            <p>Seamlessly connect with your favorite tools and services.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon" style="background: #fb923c">E</div>
+            <h3>Customizable Workflows</h3>
+            <p>Design processes tailored to your specific business needs.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon" style="background: #fbbf24">F</div>
+            <h3>Collaboration Hub</h3>
+            <p>Real-time collaboration tools to keep your team aligned and productive.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="demo-section">
+        <div class="screenshots-carousel">
+          <div class="slide-container">
+            <img
+              src="https://via.placeholder.com/1200x800"
+              alt="Product screenshot 1"
+              class="slide active"
+            />
+            <img
+              src="https://via.placeholder.com/1200x800"
+              alt="Product screenshot 2"
+              class="slide"
+            />
+            <img
+              src="https://via.placeholder.com/1200x800"
+              alt="Product screenshot 3"
+              class="slide"
+            />
+          </div>
+          <div class="carousel-controls">
+            <button class="prev"></button>
+            <div class="indicators">
+              <span class="dot active" data-slide="0"></span>
+              <span class="dot" data-slide="1"></span>
+              <span class="dot" data-slide="2"></span>
+            </div>
+            <button class="next"></button>
+          </div>
+        </div>
+      </section>
+
+      <section class="integrations">
+        <h2>Seamless Integrations</h2>
+        <p>Connect with your favorite platforms</p>
+        <div class="logos-container">
+          <img src="https://via.placeholder.com/150x60" alt="Integration partner 1" />
+          <img src="https://via.placeholder.com/150x60" alt="Integration partner 2" />
+          <img src="https://via.placeholder.com/150x60" alt="Integration partner 3" />
+          <img src="https://via.placeholder.com/150x60" alt="Integration partner 4" />
+          <img src="https://via.placeholder.com/150x60" alt="Integration partner 5" />
+        </div>
+      </section>
+
+      <section class="pricing" id="pricing">
+        <h2>Flexible Pricing Plans</h2>
+        <div class="plan-toggle">
+          <button class="btn-toggle active" data-plan="monthly">Monthly</button>
+          <button class="btn-toggle" data-plan="yearly">Yearly (Save 20%)</button>
+        </div>
+        <div class="price-calculator">
+          <label for="users">Number of users: <span id="user-count">5</span></label>
+          <input type="range" id="users" min="1" max="100" value="5" />
+        </div>
+        <table class="pricing-table">
+          <thead>
+            <tr>
+              <th>Features</th>
+              <th>Free</th>
+              <th>Pro</th>
+              <th>Enterprise</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Users</td>
+              <td>1</td>
+              <td>Up to 50</td>
+              <td>Unlimited</td>
+            </tr>
+            <tr>
+              <td>Storage</td>
+              <td>1GB</td>
+              <td>100GB</td>
+              <td>Custom</td>
+            </tr>
+            <tr>
+              <td>API Access</td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>Advanced Analytics</td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>Priority Support</td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>Custom Integrations</td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>Price (per user/month)</td>
+              <td>$0</td>
+              <td>$29</td>
+              <td>$99</td>
+            </tr>
+            <tr>
+              <td></td>
+              <td><button class="btn-plan">Get Started</button></td>
+              <td><button class="btn-plan">Choose Plan</button></td>
+              <td><button class="btn-plan">Contact Sales</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="testimonials">
+        <h2>Success Stories</h2>
+        <div class="testimonial-cards">
+          <div class="testimonial-card">
+            <p>
+              Increased productivity by 40% in just two months. Their analytics tools are unmatched.
+            </p>
+            <div class="testimonial-meta">
+              <img src="https://via.placeholder.com/50x50" alt="Customer logo 1" />
+              <div>
+                <strong>10,000+ Users</strong>
+                <span>99.9% Uptime</span>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <p>Reduced IT costs by 30% while scaling our operations across three continents.</p>
+            <div class="testimonial-meta">
+              <img src="https://via.placeholder.com/50x50" alt="Customer logo 2" />
+              <div>
+                <strong>50M+ API Calls</strong>
+                <span>GDPR Compliant</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="logos-carousel">
+          <img src="https://via.placeholder.com/150x60" alt="Client logo 1" />
+          <img src="https://via.placeholder.com/150x60" alt="Client logo 2" />
+          <img src="https://via.placeholder.com/150x60" alt="Client logo 3" />
+          <img src="https://via.placeholder.com/150x60" alt="Client logo 4" />
+          <img src="https://via.placeholder.com/150x60" alt="Client logo 5" />
+        </div>
+      </section>
+
+      <section class="resources" id="resources">
+        <h2>Developer Resources</h2>
+        <div class="resource-links">
+          <a href="#" class="resource-link">API Documentation</a>
+          <a href="#" class="resource-link">SDK Downloads</a>
+          <a href="#" class="resource-link">API Playground</a>
+          <a href="#" class="resource-link">Webinars & Guides</a>
+        </div>
+        <div class="api-playground">
+          <h3>Try Our API</h3>
+          <textarea id="api-input" placeholder="Enter your API request..."></textarea>
+          <button id="run-api">Run Request</button>
+          <pre id="api-output">Response will appear here...</pre>
+        </div>
+      </section>
+
+      <section class="faq">
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-categories">
+          <button class="faq-category active" data-category="general">General</button>
+          <button class="faq-category" data-category="billing">Billing</button>
+          <button class="faq-category" data-category="technical">Technical</button>
+        </div>
+        <div class="faq-questions">
+          <div class="faq-question" data-category="general">
+            <h3>How secure is my data?</h3>
+            <p>
+              We use end-to-end encryption and are SOC 2 certified with regular third-party security
+              audits.
+            </p>
+          </div>
+          <div class="faq-question" data-category="general">
+            <h3>Can I upgrade or downgrade my plan anytime?</h3>
+            <p>Yes, you can change your plan at any time with prorated billing adjustments.</p>
+          </div>
+          <div class="faq-question" data-category="billing">
+            <h3>Do you offer discounts for non-profits?</h3>
+            <p>Yes, we provide complimentary Pro plans for qualified non-profit organizations.</p>
+          </div>
+          <div class="faq-question" data-category="technical">
+            <h3>Do you support single sign-on (SSO)?</h3>
+            <p>Enterprise plans include SAML and OAuth 2.0 support for seamless integration.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="newsletter">
+        <h2>Stay Updated</h2>
+        <p>Subscribe to our newsletter for the latest features and updates.</p>
+        <form id="newsletter-form">
+          <input type="email" id="newsletter-email" placeholder="Enter your email" required />
+          <button type="submit" class="btn-primary">Subscribe</button>
+        </form>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-grid">
+        <div class="footer-section">
+          <h3>Resources</h3>
+          <ul>
+            <li><a href="#">Documentation</a></li>
+            <li><a href="#">API Reference</a></li>
+            <li><a href="#">Guides</a></li>
+            <li><a href="#">Blog</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Support</h3>
+          <ul>
+            <li><a href="#">Help Center</a></li>
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="#">System Status</a></li>
+            <li><a href="#">Community</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Legal</h3>
+          <ul>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+            <li><a href="#">Security</a></li>
+            <li><a href="#">Compliance</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <div class="social-links">
+            <a href="#">Twitter</a>
+            <a href="#">LinkedIn</a>
+            <a href="#">GitHub</a>
+            <a href="#">YouTube</a>
+          </div>
+          <div class="badges">
+            <span>SOC 2 Certified</span>
+            <span>GDPR Compliant</span>
+          </div>
+        </div>
+      </div>
+      <div class="copyright">
+        <p>&copy; 2025 Cypher Tech. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <div class="live-chat" id="live-chat">
+      <button class="chat-toggle" id="chat-toggle"></button>
+      <div class="chat-window" id="chat-window">
+        <div class="chat-header">
+          <h3>Live Support</h3>
+          <button class="chat-close" id="chat-close"></button>
+        </div>
+        <div class="chat-messages" id="chat-messages">
+          <div class="message received">
+            <p>Hello! How can we help you today?</p>
+          </div>
+        </div>
+        <form class="chat-input" id="chat-form">
+          <input type="text" id="chat-message" placeholder="Type your message..." required />
+          <button type="submit">Send</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="modal" id="trial-modal" style="display: none">
+      <div class="modal-content">
+        <span class="close" id="close-trial">&times;</span>
+        <h2>Start Your Free Trial</h2>
+        <form id="trial-form">
+          <label for="full-name">Full Name</label>
+          <input type="text" id="full-name" required />
+          <label for="email">Work Email</label>
+          <input type="email" id="email" required />
+          <label for="company">Company</label>
+          <input type="text" id="company" required />
+          <button type="submit" class="btn-primary">Create Account</button>
+        </form>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

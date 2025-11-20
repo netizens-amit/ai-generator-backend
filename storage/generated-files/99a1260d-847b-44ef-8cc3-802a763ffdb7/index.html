@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Netizens Tech - Innovation in AI and Cloud Solutions</title>
+    <meta
+      name="description"
+      content="Netizens Tech provides AI-powered and cloud-native solutions for businesses. Explore our innovative technologies."
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <div class="logo">Netizens Tech</div>
+        <button class="hamburger-menu" aria-label="Menu">
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+        </button>
+        <ul class="nav-links">
+          <li><a href="#home" onclick="smoothScroll('#home')">Home</a></li>
+          <li><a href="#features" onclick="smoothScroll('#features')">Features</a></li>
+          <li><a href="#about" onclick="smoothScroll('#about')">About</a></li>
+          <li><a href="#contact" onclick="smoothScroll('#contact')">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <section class="hero" id="home">
+      <div class="container">
+        <div class="hero-content">
+          <h1>Transform Your Business with AI-Powered Solutions</h1>
+          <p>
+            Harness the power of cloud-native technologies and AI to automate workflows, optimize
+            processes, and drive unprecedented growth.
+          </p>
+          <div class="hero-cta">
+            <button class="btn btn-primary" onclick="smoothScroll('#contact')">
+              Start Free Trial
+            </button>
+            <button class="btn btn-secondary" onclick="smoothScroll('#features')">
+              Request Demo
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="features" id="features">
+      <div class="container">
+        <h2>Our Key Features</h2>
+        <div class="features-grid">
+          <div class="feature-card">
+            <span class="feature-icon"></span>
+            <h3>Scalable Infrastructure</h3>
+            <p>
+              Our cloud infrastructure ensures your applications can effortlessly scale to meet
+              demand, providing seamless performance and reliability.
+            </p>
+          </div>
+          <div class="feature-card">
+            <span class="feature-icon"></span>
+            <h3>API Integrations</h3>
+            <p>
+              Easily integrate our platform with your existing systems using our comprehensive suite
+              of APIs, enabling streamlined data flow and automation.
+            </p>
+          </div>
+          <div class="feature-card">
+            <span class="feature-icon"></span>
+            <h3>Advanced Security</h3>
+            <p>
+              We employ cutting-edge security measures to protect your data and ensure compliance
+              with industry standards, giving you peace of mind.
+            </p>
+          </div>
+          <div class="feature-card">
+            <span class="feature-icon"></span>
+            <h3>Cloud-Native Architecture</h3>
+            <p>
+              Built from the ground up for the cloud, our platform leverages the latest cloud
+              technologies for optimal performance and cost-efficiency.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="about" id="about">
+      <div class="container">
+        <h2>About Netizens Tech</h2>
+        <p>
+          Netizens Tech is dedicated to revolutionizing the technology landscape with innovative AI
+          and cloud solutions. Our mission is to empower businesses to thrive in the digital age by
+          providing cutting-edge tools and expertise.
+        </p>
+        <p>
+          We differentiate ourselves through a customer-centric approach, focusing on delivering
+          scalable and secure solutions tailored to each client's unique needs. Our commitment to
+          innovation and excellence ensures that our customers always stay ahead of the curve.'
+        </p>
+        <p>
+          Customers benefit from our expertise in AI, cloud computing, and automation. By partnering
+          with Netizens Tech, businesses can unlock new levels of efficiency, productivity, and
+          growth, driving tangible results and long-term success.
+        </p>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="container">
+        <h2>Contact Us</h2>
+        <form id="contactForm">
+          <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required minlength="2" />
+            <span class="error-message" id="nameError"></span>
+          </div>
+          <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required />
+            <span class="error-message" id="emailError"></span>
+          </div>
+          <div class="form-group">
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" required minlength="10"></textarea>
+            <span class="error-message" id="messageError"></span>
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+          <p id="successMessage" class="success-message"></p>
+        </form>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container">
+        <p>2025 Netizens Tech</p>
+        <div class="social-links">
+          <a href="#">Twitter </a>
+          <a href="#">LinkedIn </a>
+          <a href="#">GitHub </a>
+        </div>
+        <div class="footer-links">
+          <a href="#home" onclick="smoothScroll('#home')">Home</a>
+          <a href="#features" onclick="smoothScroll('#features')">Features</a>
+          <a href="#contact" onclick="smoothScroll('#contact')">Contact</a>
+        </div>
+        <p>Contact: info@netizenstech.com</p>
+      </div>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>

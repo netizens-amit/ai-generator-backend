@@ -1,0 +1,377 @@
+:root {
+  --primary: #f97316;
+  --secondary: #fb923c;
+  --accent: #fbbf24;
+}
+body {
+  font-family: 'Nunito', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: #333;
+}
+header {
+  background-color: var(--primary);
+  padding: 1rem;
+  position: fixed;
+  width: 100%;
+  z-index: 1000;
+}
+header .logo {
+  display: flex;
+  align-items: center;
+}
+header .logo img {
+  height: 3rem;
+  margin-right: 1rem;
+}
+header nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+header nav ul li a {
+  color: white;
+  text-decoration: none;
+  padding: 1rem;
+  transition: background-color 0.3s ease;
+}
+header nav ul li a:hover {
+  background-color: var(--secondary);
+}
+header nav .toggle-btn {
+  display: none;
+  cursor: pointer;
+}
+main {
+  margin-top: 6rem;
+}
+section {
+  padding: 4rem;
+}
+h1,
+h2,
+h3 {
+  font-family: 'Quicksand', sans-serif;
+}
+section.hero {
+  background-color: var(--accent);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  padding: 8rem 4rem;
+}
+section.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+section.hero p {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+}
+section.hero .cta {
+  background-color: var(--primary);
+  color: white;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+section.hero .cta:hover {
+  background-color: var(--secondary);
+}
+section.courses {
+  background-color: #f4f4f4;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+}
+section.courses article {
+  background-color: white;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+section.courses article:hover {
+  transform: translateY(-10px);
+}
+section.courses article img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+}
+section.courses article .content {
+  padding: 1rem;
+}
+section.courses article .content h2 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+section.courses article .content p {
+  margin-bottom: 1rem;
+}
+section.courses article .content .info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+section.courses article .content .info .rating {
+  display: flex;
+  align-items: center;
+}
+section.courses article .content .info .rating img {
+  height: 1rem;
+  margin-right: 0.2rem;
+}
+section.courses article .content .info .enrolled {
+  font-size: 0.9rem;
+}
+section.categories {
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+section.categories div {
+  background-color: var(--primary);
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  transition: background-color 0.3s ease;
+}
+section.categories div:hover {
+  background-color: var(--secondary);
+}
+section.categories div img {
+  height: 2rem;
+}
+section.instructors {
+  background-color: #f4f4f4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+section.instructors article {
+  background-color: white;
+  border-radius: 20px;
+  padding: 1rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+section.instructors article:hover {
+  transform: translateY(-10px);
+}
+section.instructors article img {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 1rem;
+}
+section.instructors article .content h2 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+section.instructors article .content p {
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+section.instructors article .content .credentials {
+  font-size: 0.9rem;
+  color: #666;
+}
+section.testimonials {
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+section.testimonials article {
+  background-color: #f4f4f4;
+  border-radius: 20px;
+  padding: 1rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  transition: transform 0.3s ease;
+}
+section.testimonials article:hover {
+  transform: translateY(-10px);
+}
+section.testimonials article img {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 1rem;
+}
+section.testimonials article .content h2 {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+section.testimonials article .content p {
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+section.free-sample {
+  background-color: var(--accent);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  padding: 8rem 4rem;
+}
+section.free-sample h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+section.free-sample p {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+}
+section.free-sample .cta {
+  background-color: var(--primary);
+  color: white;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+section.free-sample .cta:hover {
+  background-color: var(--secondary);
+}
+section.pricing {
+  background-color: #f4f4f4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+section.pricing article {
+  background-color: white;
+  border-radius: 20px;
+  padding: 1rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  transition: transform 0.3s ease;
+}
+section.pricing article:hover {
+  transform: translateY(-10px);
+}
+section.pricing article .content h2 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+section.pricing article .content p {
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+section.pricing article .content .price {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 1rem;
+}
+section.enrollment {
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  padding: 8rem 4rem;
+}
+section.enrollment h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+section.enrollment p {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+}
+section.enrollment ol {
+  list-style-type: decimal;
+  margin-left: 2rem;
+}
+section.enrollment ol li {
+  margin-bottom: 1rem;
+}
+footer {
+  background-color: var(--primary);
+  color: white;
+  padding: 2rem;
+  text-align: center;
+}
+footer .accreditations img {
+  height: 2rem;
+  margin-right: 1rem;
+}
+footer .contact {
+  margin-top: 1rem;
+}
+footer .contact a {
+  color: white;
+  text-decoration: none;
+  margin-right: 1rem;
+  transition: color 0.3s ease;
+}
+footer .contact a:hover {
+  color: var(--secondary);
+}
+@media (max-width: 768px) {
+  header nav ul {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    background-color: var(--primary);
+    position: absolute;
+    top: 6rem;
+    left: 0;
+  }
+  header nav ul.show {
+    display: flex;
+  }
+  header nav .toggle-btn {
+    display: block;
+  }
+  section {
+    padding: 2rem;
+  }
+  section.hero {
+    padding: 4rem 2rem;
+  }
+  section.courses {
+    grid-template-columns: 1fr;
+  }
+  section.categories,
+  section.instructors,
+  section.testimonials,
+  section.pricing {
+    flex-direction: column;
+    align-items: center;
+  }
+  section.enrollment {
+    padding: 4rem 2rem;
+  }
+}
